@@ -3,9 +3,14 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Mail, Linkedin, Github, Send, MapPin } from 'lucide-react';
+import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function ContactSection() {
   const { t } = useLanguage();
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<null | { type: 'success' | 'error'; message: string }>(null);
 
   const contactMethods = [
     {
@@ -30,6 +35,54 @@ export default function ContactSection() {
       color: "from-gray-700 to-gray-900"
     }
   ];
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus({ type: 'error', message: 'Email service is not configured. Missing environment variables.' });
+      return;
+    }
+
+    try {
+      setSending(true);
+      setStatus(null);
+      // Collect fields and compose a rich message body so it always includes all info
+      const data = new FormData(formRef.current);
+      const from_name = (data.get('from_name') || '').toString();
+      const from_email = (data.get('from_email') || '').toString();
+      const subject = (data.get('subject') || '').toString();
+      const rawMessage = (data.get('message') || '').toString();
+
+      const composedMessage = `Nova mensagem do Portfólio\n\nDe: ${from_name} <${from_email}>\nAssunto: ${subject}\n\nMensagem:\n${rawMessage}`;
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          to_name: 'Lucca Milano',
+          from_name,
+          from_email,
+          reply_to: from_email,
+          subject,
+          message: composedMessage,
+        },
+        { publicKey }
+      );
+      setStatus({ type: 'success', message: t('emailSuccess') });
+      formRef.current.reset();
+    } catch (err) {
+      console.error('EmailJS send error:', err);
+      setStatus({ type: 'error', message: 'Falha ao enviar. Tente novamente mais tarde.' });
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
@@ -127,7 +180,9 @@ export default function ContactSection() {
                 {t('sendMessage')}
               </h3>
               
-              <form className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                {/* Hidden field for recipient name used in EmailJS template */}
+                <input type="hidden" name="to_name" value="Lucca Milano" />
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -136,9 +191,10 @@ export default function ContactSection() {
                     <input
                       type="text"
                       id="name"
-                      name="name"
+                      name="from_name"
                       className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all duration-300"
                       placeholder={t('nameField')}
+                      required
                     />
                   </div>
                   <div>
@@ -148,9 +204,10 @@ export default function ContactSection() {
                     <input
                       type="email"
                       id="email"
-                      name="email"
+                      name="from_email"
                       className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all duration-300"
                       placeholder={t('emailField')}
+                      required
                     />
                   </div>
                 </div>
@@ -165,6 +222,7 @@ export default function ContactSection() {
                     name="subject"
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all duration-300"
                     placeholder={t('subjectField')}
+                    required
                   />
                 </div>
 
@@ -178,6 +236,7 @@ export default function ContactSection() {
                     rows={5}
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all duration-300 resize-none"
                     placeholder={t('messageField')}
+                    required
                   ></textarea>
                 </div>
 
@@ -185,17 +244,22 @@ export default function ContactSection() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+                  disabled={sending}
+                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Send className="w-5 h-5" />
-                  {t('sendMessageButton')}
+                  {sending ? 'Enviando...' : t('sendMessageButton')}
                 </motion.button>
               </form>
 
               <div className="mt-6 pt-6 border-t border-white/10 text-center">
-                <p className="text-gray-400 text-sm">
-                  {t('emailResponse')}
-                </p>
+                {status ? (
+                  <p className={`text-sm ${status.type === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                    {status.message}
+                  </p>
+                ) : (
+                  <p className="text-gray-400 text-sm">{t('emailResponse')}</p>
+                )}
               </div>
             </motion.div>
           </div>

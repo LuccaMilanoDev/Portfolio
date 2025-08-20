@@ -13,7 +13,7 @@ interface LanguageContextType {
 const translations = {
   pt: {
     // Hero Section
-    heroTitle: "Lucca Milano Casado Dos Santos",
+    heroTitle: "Transformando ideias em código funcional e inovador",
     heroSubtitle: "Desenvolvedor Full Stack | Java | Spring Boot | React | Next | PostgreSQL | Docker",
     heroDescription: "Construindo soluções escaláveis e inovadoras para o mundo digital.",
     viewProjects: "Ver Projetos",
@@ -80,6 +80,7 @@ const translations = {
     messageField: "Conte-me sobre seu projeto ou como podemos trabalhar juntos...",
     sendMessageButton: "Enviar Mensagem",
     emailResponse: "Ou entre em contato diretamente via email para uma resposta mais rápida",
+    emailSuccess: "Email enviado com sucesso, entrarei em contato em breve.",
     
     // Skills Section
     skillsDescription: "Sempre aprendendo e explorando novas tecnologias para me manter atualizado com as tendências e melhores práticas da indústria.",
@@ -106,7 +107,7 @@ const translations = {
   },
   en: {
     // Hero Section
-    heroTitle: "Lucca Milano Casado Dos Santos",
+    heroTitle: "Transforming ideas into functional and innovative code.",
     heroSubtitle: "Full Stack Developer | Java | Spring Boot | React | Next | PostgreSQL | Docker",
     heroDescription: "Building scalable and innovative solutions for the digital world.",
     viewProjects: "View Projects",
@@ -173,6 +174,7 @@ const translations = {
     messageField: "Tell me about your project or how we can work together...",
     sendMessageButton: "Send Message",
     emailResponse: "Or reach out directly via email for a faster response",
+    emailSuccess: "Email sent successfully, I will get back to you soon.",
     
     // Skills Section
     skillsDescription: "Constantly learning and exploring new technologies to stay current with industry trends and best practices.",

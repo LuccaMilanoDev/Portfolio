@@ -127,21 +127,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="text-gray-400 hover:text-white cursor-pointer transition-colors duration-300"
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            <ChevronDown size={32} />
-          </motion.div>
-        </motion.div>
+        
       </div>
     </section>
   );
