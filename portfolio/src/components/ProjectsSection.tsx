@@ -10,53 +10,63 @@ export default function ProjectsSection() {
   const projects = [
     {
       id: 1,
-      title: "E-commerce Platform",
-      description: "Full-stack e-commerce solution with user authentication, product catalog, shopping cart, and payment integration.",
-      technologies: ["Next.js", "Spring Boot", "PostgreSQL", "Docker"],
-      githubUrl: "#",
-      demoUrl: "#",
+      title: "CRUD Spring + PostgreSQL + Docker",
+      description: "CRUD simples de usuário utilizando Spring Boot, banco PostgreSQL em container Docker e boas práticas de API REST.",
+      technologies: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
+      githubUrl: "https://github.com/LuccaMilanoDev/CRUD-spring-Postgree",
+      demoUrl: null,
+      icon: <Database className="w-6 h-6" />,
+      gradient: "from-green-600 to-emerald-600"
+    },
+    {
+      id: 2,
+      title: "8-puzzle (IDA* / DFS Iterativo)",
+      description: "Duas versões da função do 8‑puzzle: uma copiando e editando a estrutura e outra modificando o estado do pai (com undo). Implementação de busca em profundidade iterativa e comparação de performance.",
+      technologies: ["Java", "Algoritmos", "Busca", "Estruturas de Dados"],
+      githubUrl: "https://github.com/LuccaMilanoDev/8-puzzle",
+      demoUrl: null,
+      icon: <Code className="w-6 h-6" />,
+      gradient: "from-orange-500 to-red-600"
+    },
+    {
+      id: 3,
+      title: "Milano Seguros (Site)",
+      description: "Website institucional desenvolvido com Next.js, TypeScript e TailwindCSS.",
+      technologies: ["Next.js", "TypeScript", "TailwindCSS"],
+      githubUrl: "https://github.com/LuccaMilanoDev/Milano-seguros",
+      demoUrl: "https://milano-seguros.vercel.app/",
       icon: <Globe className="w-6 h-6" />,
       gradient: "from-blue-500 to-purple-600"
     },
     {
-      id: 2,
-      title: "Task Management System",
-      description: "Collaborative project management tool with real-time updates, user roles, and comprehensive reporting features.",
-      technologies: ["React", "Java", "MySQL", "JWT"],
-      githubUrl: "#",
-      demoUrl: "#",
-      icon: <Code className="w-6 h-6" />,
-      gradient: "from-green-500 to-teal-600"
-    },
-    {
-      id: 3,
-      title: "REST API Gateway",
-      description: "Scalable microservices architecture with API gateway, service discovery, and comprehensive monitoring solutions.",
-      technologies: ["Spring Boot", "PostgreSQL", "Docker", "Redis"],
-      githubUrl: "#",
-      demoUrl: null,
-      icon: <Database className="w-6 h-6" />,
-      gradient: "from-orange-500 to-red-600"
-    },
-    {
       id: 4,
-      title: "Real-time Chat Application",
-      description: "Modern chat application with WebSocket connections, file sharing, group chats, and message encryption.",
-      technologies: ["Next.js", "TypeScript", "Socket.io", "MongoDB"],
-      githubUrl: "#",
-      demoUrl: "#",
+      title: "Todo List (Vanilla JS)",
+      description: "Todo list com pesquisa, filtro e persistência em LocalStorage. Feita com HTML, CSS e JavaScript puro.",
+      technologies: ["HTML", "CSS", "JavaScript", "LocalStorage"],
+      githubUrl: "https://github.com/LuccaMilanoDev/todo-list",
+      demoUrl: "https://todo-list-beryl-tau.vercel.app/",
+      icon: <Code className="w-6 h-6" />,
+      gradient: "from-indigo-500 to-blue-600"
+    },
+    {
+      id: 5,
+      title: "GitPlus - Plataforma de Streaming (Back4App)",
+      description: "Simulação de plataforma de streaming: cadastro de clientes no Back4App, lista de filmes por cliente e assinatura com até 3 perfis. Projeto em grupo da faculdade.",
+      technologies: ["JavaScript", "Back4App", "Parse", "Vercel"],
+      githubUrl: "https://github.com/RianDelou/GitPlus",
+      demoUrl: "https://git-plus-es.vercel.app/",
       icon: <Globe className="w-6 h-6" />,
       gradient: "from-purple-500 to-pink-600"
     },
     {
-      id: 5,
-      title: "Analytics Dashboard",
-      description: "Business intelligence dashboard with data visualization, real-time metrics, and customizable reporting tools.",
-      technologies: ["React", "Python", "PostgreSQL", "Chart.js"],
-      githubUrl: "#",
-      demoUrl: "#",
-      icon: <Code className="w-6 h-6" />,
-      gradient: "from-indigo-500 to-blue-600"
+      id: 6,
+      title: "iPhone 13 Page (Clone)",
+      description: "Cópia da landing page do iPhone utilizando apenas HTML, CSS e JavaScript puro.",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      githubUrl: "https://github.com/LuccaMilanoDev/iphone13Page",
+      demoUrl: "https://iphone13-page.vercel.app/",
+      icon: <Globe className="w-6 h-6" />,
+      gradient: "from-teal-500 to-cyan-600"
     }
   ];
 
@@ -163,6 +173,8 @@ export default function ProjectsSection() {
                   <div className="flex gap-3">
                     <a
                       href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium rounded-lg transition-colors duration-300 flex-1 justify-center"
                     >
                       <Github className="w-4 h-4" />
@@ -172,6 +184,8 @@ export default function ProjectsSection() {
                     {project.demoUrl && (
                       <a
                         href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={`flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${project.gradient} hover:opacity-90 text-white text-sm font-medium rounded-lg transition-opacity duration-300 flex-1 justify-center`}
                       >
                         <ExternalLink className="w-4 h-4" />
