@@ -21,7 +21,7 @@ const translations = {
     
     // About Section
     aboutTitle: "Sobre Mim",
-    aboutDescription: "Estudante do 8º semestre de Ciência da Computação com sólida experiência prática em desenvolvimento back-end e colaboração em front-end. Apaixonado por construir soluções escaláveis e eficientes, utilizando Spring Boot, Docker e PostgreSQL. Experiência com metodologias ágeis (Scrum e Kanban) e proficiência em Git/GitHub. Busca constante por novos desafios para aprimorar habilidades e contribuir para soluções impactantes e inovadoras.",
+    aboutDescription: "Formado em Ciência da Computação atuando como Desenvolvedor Full Stack Júnior. Tenho experiência prática na construção de APIs escaláveis (Java/Spring Boot, Node.js) e interfaces modernas (React/Next.js), focando em código limpo, Docker e metodologias ágeis.",
     
     // Skills Section
     skillsTitle: "Habilidades",
@@ -32,22 +32,30 @@ const translations = {
     
     // Experience Section
     experienceTitle: "Experiência Profissional",
-    currentPosition: "Estagiário em Desenvolvimento",
-    company: "Web Star Studio (former Client Hall)",
-    period: "Outubro 2024 – Presente",
+    currentPosition: "Desenvolvedor Full Stack Júnior",
+    company: "Web Star Studio",
+    period: "Outubro 2025 – Presente",
     responsibilities: "Responsabilidades:",
-    resp1: "Desenvolvimento de APIs RESTful escaláveis e seguras com Spring Boot e Java",
-    resp2: "Modelagem de dados com JPA para PostgreSQL",
-    resp3: "Implementação de autenticação e autorização com JWT",
-    resp4: "Gerenciamento de aplicações com Docker",
-    resp5: "Participação na equipe de front-end com Next.js",
-    resp6: "Foco na qualidade do código e testes unitários",
+    resp1: "Desenvolvimento e manutenção de APIs RESTful com Java (Spring Boot) e Node.js",
+    resp2: "Implementação de segurança via JWT",
+    resp3: "Modelagem de banco de dados (PostgreSQL)",
+    resp4: "Gerenciamento de containers Docker",
+    resp5: "",
+    resp6: "",
+    // Intern position
+    internPosition: "Estagiário em Desenvolvimento",
+    internCompany: "Web Star Studio",
+    internPeriod: "Outubro 2024 – Setembro 2025",
+    internResp1: "Atuação no front-end utilizando Next.js, TypeScript e Tailwind CSS",
+    internResp2: "Participação ativa em Code Reviews",
+    internResp3: "Aplicação de testes unitários",
+    internResp4: "Versionamento de código seguindo GitFlow",
     
     // Education Section
     educationTitle: "Educação",
     degree: "Ciência da Computação",
     university: "UNICAP - Universidade Católica de Pernambuco",
-    educationPeriod: "Fevereiro 2022 - Dezembro 2025 (Cursando)",
+    educationPeriod: "Fevereiro 2022 - Dezembro 2025",
     relevantSubjects: "Disciplinas Relevantes:",
     subjects: "Java, Padrões de projeto, MySQL, PostgreSQL, JavaScript, Python, Testes Unitários, React",
     complementaryCourses: "Cursos Complementares:",
@@ -90,7 +98,7 @@ const translations = {
     moreExperiences: "Mais experiências em breve...",
     
     // Education Section
-    currentlyEnrolled: "Atualmente Matriculado - 8º Semestre",
+    currentlyEnrolled: "Concluído",
     academicAchievement: "Combinando conhecimento acadêmico com experiência prática da indústria para construir expertise técnica abrangente.",
     
     // Projects Section
@@ -115,7 +123,7 @@ const translations = {
     
     // About Section
     aboutTitle: "About Me",
-    aboutDescription: "8th semester Computer Science student with solid practical experience in back-end development and front-end collaboration. Passionate about building scalable and efficient solutions using Spring Boot, Docker, and PostgreSQL. Experienced with agile methodologies (Scrum and Kanban) and proficient in Git/GitHub. Constantly seeking new challenges to improve skills and contribute to impactful and innovative solutions.",
+    aboutDescription: "Computer Science graduate working as a Junior Full Stack Developer. I have hands-on experience building scalable APIs (Java/Spring Boot, Node.js) and modern interfaces (React/Next.js), focusing on clean code, Docker, and agile methodologies.",
     
     // Skills Section
     skillsTitle: "Skills",
@@ -126,22 +134,30 @@ const translations = {
     
     // Experience Section
     experienceTitle: "Professional Experience",
-    currentPosition: "Development Intern",
-    company: "Web Star Studio (former Client Hall)",
-    period: "October 2024 – Present",
+    currentPosition: "Junior Full Stack Developer",
+    company: "Web Star Studio",
+    period: "October 2025 – Present",
     responsibilities: "Responsibilities:",
-    resp1: "Development of scalable and secure RESTful APIs with Spring Boot and Java",
-    resp2: "Data modeling with JPA for PostgreSQL",
-    resp3: "Implementation of authentication and authorization with JWT",
-    resp4: "Application management with Docker",
-    resp5: "Participation in front-end team with Next.js",
-    resp6: "Focus on code quality and unit testing",
+    resp1: "Development and maintenance of RESTful APIs with Java (Spring Boot) and Node.js",
+    resp2: "Security implementation via JWT",
+    resp3: "Database modeling (PostgreSQL)",
+    resp4: "Docker container management",
+    resp5: "",
+    resp6: "",
+    // Intern position
+    internPosition: "Development Intern",
+    internCompany: "Web Star Studio",
+    internPeriod: "October 2024 – September 2025",
+    internResp1: "Front-end development using Next.js, TypeScript, and Tailwind CSS",
+    internResp2: "Active participation in Code Reviews",
+    internResp3: "Unit testing implementation",
+    internResp4: "Code versioning following GitFlow",
     
     // Education Section
     educationTitle: "Education",
     degree: "Computer Science",
     university: "UNICAP - Catholic University of Pernambuco",
-    educationPeriod: "February 2022 - December 2025 (In Progress)",
+    educationPeriod: "February 2022 - December 2025",
     relevantSubjects: "Relevant Subjects:",
     subjects: "Java, Design Patterns, MySQL, PostgreSQL, JavaScript, Python, Unit Testing, React",
     complementaryCourses: "Complementary Courses:",
@@ -184,7 +200,7 @@ const translations = {
     moreExperiences: "More experiences coming soon...",
     
     // Education Section
-    currentlyEnrolled: "Currently Enrolled - 8th Semester",
+    currentlyEnrolled: "Completed",
     academicAchievement: "Combining academic knowledge with practical industry experience to build comprehensive technical expertise.",
     
     // Projects Section

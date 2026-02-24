@@ -9,13 +9,15 @@ import {
   SiSpringboot, 
   SiReact, 
   SiNextdotjs,
+  SiNodedotjs,
   SiPostgresql, 
   SiMysql,
   SiDocker, 
   SiGit, 
   SiHtml5,
   SiCss3,
-  SiJest
+  SiJest,
+  SiLinux
 } from 'react-icons/si';
 import { Database, Shield, Coffee, Code } from 'lucide-react';
 
@@ -36,6 +38,7 @@ export default function SkillsSection() {
       title: t('frameworks'),
       skills: [
         { name: 'Spring Boot', icon: SiSpringboot, color: 'text-green-500' },
+        { name: 'Node.js', icon: SiNodedotjs, color: 'text-green-600' },
         { name: 'React', icon: SiReact, color: 'text-cyan-500' },
         { name: 'Next.js', icon: SiNextdotjs, color: 'text-gray-900' },
       ]
@@ -56,6 +59,7 @@ export default function SkillsSection() {
         { name: 'CSS', icon: SiCss3, color: 'text-blue-500' },
         { name: 'JPA', icon: Database, color: 'text-purple-600' },
         { name: 'JWT', icon: Shield, color: 'text-green-600' },
+        { name: 'Linux', icon: SiLinux, color: 'text-gray-800' },
         { name: 'Unit Testing', icon: SiJest, color: 'text-red-600' },
       ]
     }

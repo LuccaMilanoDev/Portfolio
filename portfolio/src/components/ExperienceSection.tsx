@@ -2,19 +2,24 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Building, Calendar, CheckCircle } from 'lucide-react';
+import { Building, Calendar, CheckCircle, Briefcase } from 'lucide-react';
 
 export default function ExperienceSection() {
   const { t } = useLanguage();
 
-  const responsibilities = [
+  const currentResponsibilities = [
     t('resp1'),
     t('resp2'),
     t('resp3'),
     t('resp4'),
-    t('resp5'),
-    t('resp6')
-  ];
+  ].filter(Boolean);
+
+  const internResponsibilities = [
+    t('internResp1'),
+    t('internResp2'),
+    t('internResp3'),
+    t('internResp4'),
+  ].filter(Boolean);
 
   return (
     <section id="experience" className="py-20 bg-gray-50">
@@ -38,13 +43,13 @@ export default function ExperienceSection() {
             {/* Timeline Line */}
             <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-purple-600 to-blue-600"></div>
 
-            {/* Experience Card */}
+            {/* Current Position - Junior Full Stack Developer */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="relative flex items-start"
+              className="relative flex items-start mb-16"
             >
               {/* Timeline Dot */}
               <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center relative z-10 md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
@@ -81,7 +86,7 @@ export default function ExperienceSection() {
                       {t('responsibilities')}
                     </h4>
                     <div className="space-y-3">
-                      {responsibilities.map((responsibility, index) => (
+                      {currentResponsibilities.map((responsibility, index) => (
                         <motion.div
                           key={index}
                           initial={{ opacity: 0, x: 20 }}
@@ -103,12 +108,12 @@ export default function ExperienceSection() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 1.2 }}
+                    transition={{ duration: 0.4, delay: 1.0 }}
                     viewport={{ once: true }}
                     className="mt-6 pt-4 border-t border-gray-100"
                   >
                     <div className="flex flex-wrap gap-2 md:justify-end">
-                      {['Spring Boot', 'Java', 'PostgreSQL', 'Docker', 'Next.js', 'JWT'].map((tech) => (
+                      {['Spring Boot', 'Java', 'Node.js', 'PostgreSQL', 'Docker', 'JWT'].map((tech) => (
                         <span
                           key={tech}
                           className="px-3 py-1 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 text-xs font-medium rounded-full border border-purple-200"
@@ -125,7 +130,7 @@ export default function ExperienceSection() {
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 1.4 }}
+                transition={{ duration: 0.4, delay: 1.2 }}
                 viewport={{ once: true }}
                 className="absolute -top-2 right-4 md:right-auto md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-8"
               >
@@ -134,6 +139,90 @@ export default function ExperienceSection() {
                   {t('currentPositionLabel')}
                 </span>
               </motion.div>
+            </motion.div>
+
+            {/* Previous Position - Intern */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="relative flex items-start md:flex-row-reverse"
+            >
+              {/* Timeline Dot */}
+              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center relative z-10 md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+                <Briefcase className="w-8 h-8 text-white" />
+              </div>
+
+              {/* Experience Content */}
+              <div className="ml-8 md:ml-0 md:w-1/2 md:pl-8 md:text-left">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-lg p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                >
+                  {/* Company & Position */}
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {t('internPosition')}
+                    </h3>
+                    <div className="flex items-center gap-2 text-blue-600 font-semibold mb-2">
+                      <Building className="w-4 h-4" />
+                      <span>{t('internCompany')}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Calendar className="w-4 h-4" />
+                      <span>{t('internPeriod')}</span>
+                    </div>
+                  </div>
+
+                  {/* Responsibilities */}
+                  <div className="space-y-4">
+                    <h4 className="font-semibold text-gray-800">
+                      {t('responsibilities')}
+                    </h4>
+                    <div className="space-y-3">
+                      {internResponsibilities.map((responsibility, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, delay: 0.8 + (index * 0.1) }}
+                          viewport={{ once: true }}
+                          className="flex items-start gap-3"
+                        >
+                          <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                          <p className="text-gray-700 text-sm leading-relaxed">
+                            {responsibility}
+                          </p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Technologies Badge */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 1.2 }}
+                    viewport={{ once: true }}
+                    className="mt-6 pt-4 border-t border-gray-100"
+                  >
+                    <div className="flex flex-wrap gap-2">
+                      {['Next.js', 'TypeScript', 'Tailwind CSS', 'Git', 'GitFlow'].map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 text-xs font-medium rounded-full border border-blue-200"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                </motion.div>
+              </div>
             </motion.div>
 
             {/* Future Timeline Placeholder */}

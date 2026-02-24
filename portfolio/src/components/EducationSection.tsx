@@ -69,10 +69,10 @@ export default function EducationSection() {
                   </div>
                 </div>
 
-                {/* Current Status */}
+                {/* Graduation Status */}
                 <div className="mb-6">
-                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full border border-green-300">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full border border-blue-300">
+                    <GraduationCap className="w-4 h-4" />
                     {t('currentlyEnrolled')}
                   </span>
                 </div>

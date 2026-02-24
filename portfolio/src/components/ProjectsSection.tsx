@@ -9,6 +9,16 @@ export default function ProjectsSection() {
 
   const projects = [
     {
+      id: 0,
+      title: "API REST - Spring Boot + Docker + PostgreSQL",
+      description: "API REST completa com Spring Boot, PostgreSQL containerizado via Docker e documentação pronta. Inclui boas práticas de arquitetura, endpoints CRUD e configuração de ambiente via Docker Compose.",
+      technologies: ["Java", "Spring Boot", "PostgreSQL", "Docker", "API REST"],
+      githubUrl: "https://github.com/LuccaMilanoDev/api-rest",
+      demoUrl: null,
+      icon: <Database className="w-6 h-6" />,
+      gradient: "from-purple-600 to-blue-600"
+    },
+    {
       id: 1,
       title: "CRUD Spring + PostgreSQL + Docker",
       description: "CRUD simples de usuário utilizando Spring Boot, banco PostgreSQL em container Docker e boas práticas de API REST.",
