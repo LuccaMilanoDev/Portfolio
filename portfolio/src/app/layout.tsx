@@ -1,37 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import "@fontsource-variable/space-grotesk";
+import "@fontsource-variable/manrope";
 import "./globals.css";
-import { LanguageProvider } from "@/contexts/LanguageContext";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Lucca Milano - Full Stack Developer",
-  description: "Full Stack Developer specializing in Java, Spring Boot, React, Next.js, and modern web technologies. Building scalable and innovative solutions.",
+  title: "Lucca Milano — Desenvolvedor de Software",
+  description:
+    "Desenvolvedor de software no Grupo RAS. Java, Struts, Spring, React e Next.js. Conheça minha trajetória, projetos e a forma como construo software.",
+  openGraph: {
+    title: "Lucca Milano — Desenvolvedor de Software",
+    description: "Do back-end à experiência. Software construído com intenção.",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
-
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <LanguageProvider>
-          {children}
-        </LanguageProvider>
-      </body>
+    <html lang="pt-BR">
+      <body>{children}</body>
     </html>
   );
 }

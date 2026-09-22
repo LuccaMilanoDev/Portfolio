@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lucca Milano — Portfólio
 
-## Getting Started
+Portfólio em português, com tema grafite e verde-lima, fontes locais Space Grotesk e Manrope e escultura orbital 3D interativa.
 
-First, run the development server:
+## Executar
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra http://localhost:3000. Para produção: `npm run build` e `npm start`. Validação: `npm run lint`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Organização
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/components/Portfolio.tsx`: conteúdo, navegação, filtros, experiências e contato.
+- `src/components/OrbitScene.tsx`: Three.js + React Three Fiber + Drei, com iluminação local.
+- `src/app/globals.css`: identidade visual, layout e breakpoints.
+- `CONTENT.md`: fontes das informações e datas ainda não confirmadas.
 
-## Learn More
+A cena é carregada sob demanda, limita a resolução de renderização e pausa fora da tela ou com a aba oculta. A animação 3D inicia automaticamente, sem botão de reprodução, conforme solicitado. Oferece fallback sem WebGL.
 
-To learn more about Next.js, take a look at the following resources:
+As capas dos projetos são ilustrações. Contato usa e-mail e links diretos, sem serviço externo de envio. Não são necessárias variáveis de ambiente.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+React permanece na série 19.2 por compatibilidade com React Three Fiber 9.7.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Dependências
 
-## Deploy on Vercel
+O Next.js foi atualizado para 15.5.25 e React para 19.2.8. A auditoria de produção ainda aponta quatro alertas transitivos (Next/PostCSS, nanoid e sharp). A migração de versão principal do Next.js não faz parte desta reformulação; revisar os alertas antes da publicação.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
